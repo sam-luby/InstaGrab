@@ -26,6 +26,7 @@ pic_class = 'v1Nh3 kIKUG  _bz0w'
 browser = webdriver.Chrome(ChromeDriverManager().install())
 browser.get(sam_url)
 
+# have to use xpath since 'find_elements_by_class' doesnt allow for classes with spaces in name
 rows = browser.find_elements_by_xpath("//*[contains(@class,'{0}')]".format(row_class))
 for row in rows:
     row = row.text
@@ -36,3 +37,4 @@ for pic in pics:
     href = pic.find_element_by_css_selector('a').get_attribute('href')
     print(href)
 
+# TODO Use selenium's keys functions to scroll to bottom of page
