@@ -1,5 +1,6 @@
 import os
 import requests
+import sys
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -45,19 +46,25 @@ def get_pic_page_source(pic_url):
     except:
         print("Cant find original image")
 
-
 def save_images(url_list):
     for index, url  in enumerate(url_list):
         urllib.request.urlretrieve(url, "insta_{0}.jpg".format(index))
 
+def main():
+    try:
+        profile = sys.argv[1]
+        insta_url = 'https://www.instagram.com/{0}/'.format(profile)
+        browser = load_full_browser_page(insta_url)
+        pic_urls = get_pic_urls(browser)
+        orig_pic_urls = []
+        for pic in pic_urls:
+            orig_pic_urls.append(get_pic_page_source(pic))
+        save_images(orig_pic_urls)
+
+    except:
+        print("Enter a profile name")
+   
 
 if __name__ == '__main__':
-    browser = load_full_browser_page(sam_url)
-    pic_urls = get_pic_urls(browser)
-    orig_pic_urls = []
-
-
-    for pic in pic_urls[0:2]:
-        orig_pic_urls.append(get_pic_page_source(pic))
-
-    save_images(url_list)
+    main()
+      
