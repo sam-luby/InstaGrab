@@ -5,6 +5,7 @@ import requests
 from http.client import HTTPConnection
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -25,6 +26,8 @@ pic_class = 'v1Nh3 kIKUG  _bz0w'
 
 browser = webdriver.Chrome(ChromeDriverManager().install())
 browser.get(sam_url)
+browser.find_element_by_tag_name("body").send_keys(Keys.END)
+
 
 # have to use xpath since 'find_elements_by_class' doesnt allow for classes with spaces in name
 rows = browser.find_elements_by_xpath("//*[contains(@class,'{0}')]".format(row_class))
@@ -36,5 +39,4 @@ pics = browser.find_elements_by_xpath("//*[contains(@class,'{0}')]".format(pic_c
 for pic in pics:
     href = pic.find_element_by_css_selector('a').get_attribute('href')
     print(href)
-
-# TODO Use selenium's keys functions to scroll to bottom of page
+    
