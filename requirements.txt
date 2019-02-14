@@ -1,0 +1,5 @@
+requests==2.21.0
+beautifulsoup4==4.7.1
+selenium==3.141.0
+webdriver_manager==1.7
+#git+https://github.com/SergeyPirogov/webdriver_manager.git@master#egg=webdriver_manager
