@@ -1,5 +1,6 @@
 import requests
 import sys
+import os
 import urllib.request
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -56,23 +57,23 @@ def get_pic_page_source(pic_url):
     # saves the full-sized image locally.
 def save_images(url_list, profile):
     for index, url in enumerate(url_list):
+        if not os.path.exists(profile):
+            os.mkdir(profile)
         img_name = "{0}_{1}".format(profile, index)
-        urllib.request.urlretrieve(url, img_name)
-        print("Image saved as {0}.".format(img_name))
+        path = os.path.join(profile, img_name)
+        urllib.request.urlretrieve(url, path)
+        print("Image saved as {0}.".format(path))
 
 def main():
-    try:
-        profile = sys.argv[1]
-        insta_url = 'https://www.instagram.com/{0}/'.format(profile)
-        browser = load_full_browser_page(insta_url)
-        pic_urls = get_pic_urls(browser)
-        orig_pic_urls = []
-        for pic in pic_urls:
-            orig_pic_urls.append(get_pic_page_source(pic))
-        save_images(orig_pic_urls, profile)
-
-    except:
-        print("Enter a profile name")
+    profile = sys.argv[1]
+    insta_url = 'https://www.instagram.com/{0}/'.format(profile)
+    browser = load_full_browser_page(insta_url)
+    pic_urls = get_pic_urls(browser)
+    orig_pic_urls = []
+    for pic in pic_urls:
+        orig_pic_urls.append(get_pic_page_source(pic))
+    save_images(orig_pic_urls, profile)
+    
 
 if __name__ == '__main__':
     main()

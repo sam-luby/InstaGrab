@@ -1,5 +1,14 @@
-requests==2.21.0
 beautifulsoup4==4.7.1
+certifi==2018.11.29
+chardet==3.0.4
+colorama==0.4
+configparser==3.7.1
+crayons==0.1.2
+idna==2.8
+pip==9.0.1
+requests==2.21.0
 selenium==3.141.0
-webdriver_manager==1.7
-#git+https://github.com/SergeyPirogov/webdriver_manager.git@master#egg=webdriver_manager
+setuptools==28.8.1
+soupsieve==1.7.3
+urllib3==1.24.1
+webdriver-manager==1.7
