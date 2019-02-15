@@ -20,5 +20,5 @@ The program is written in Python, and I used some of the following modules:
 1. Clone or download it somewhere
 2. Install python, pip (package installer for python) & google chrome if you dont have them
 3. Use _pip install -r requirements.txt_ to install the necessary packages
-4. Run _python main.py <username>_ to download all the pictures.
+4. Run _python main.py "username"_ to download all the pictures.
 5. Theyre saved in a directory with their username.
