@@ -11,5 +11,5 @@ selenium==3.141.0
 setuptools==28.8.1
 soupsieve==1.7.3
 urllib3==1.24.1
-#webdriver-manager==1.7
-git+https://github.com/SergeyPirogov/webdriver_manager.git@master#egg=webdriver_manager
+webdriver_manager==1.7
+#git+https://github.com/SergeyPirogov/webdriver_manager.git@master#egg=webdriver_manager
