@@ -59,7 +59,7 @@ def save_images(url_list, profile):
     for index, url in enumerate(url_list):
         if not os.path.exists(profile):
             os.mkdir(profile)
-        img_name = "{0}_{1}".format(profile, index)
+        img_name = "{0}_{1}.jpg".format(profile, index)
         path = os.path.join(profile, img_name)
         urllib.request.urlretrieve(url, path)
         print("Image saved as {0}.".format(path))
