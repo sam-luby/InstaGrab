@@ -8,7 +8,7 @@ idna==2.8
 pip==9.0.1
 requests==2.21.0
 selenium==3.141.0
-setuptools==28.8.1
+setuptools==65.5.1
 soupsieve==1.7.3
 urllib3==1.24.1
 webdriver_manager==1.7
